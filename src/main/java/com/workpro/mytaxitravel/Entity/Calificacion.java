@@ -35,5 +35,5 @@ public class Calificacion {
     private String comentarioUsuario;
     @Column(name = "comentario_conductor")
     private String comentarioConductor;
-    
+
 }
