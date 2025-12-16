@@ -23,8 +23,11 @@ public class Conductor extends Persona{
     @Column(name = "ganancias_totales", nullable = false)
     private double gananciasTotales;
 
+    // Indicamos relacion
     @OneToOne
+    // Nombre que tendra la union de columnas
     @JoinColumn(name = "taxi_en_uso")
+    // Invocacion del objeto a referenciar (clase primaria)
     private Taxi taxiEnUso;
 
 }
