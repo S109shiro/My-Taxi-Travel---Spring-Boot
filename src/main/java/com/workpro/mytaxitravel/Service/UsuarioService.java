@@ -26,8 +26,13 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
-    // Guardar o actualizar un nuevo usuario
-    public void saveOrUpdateUsuario(Usuario usuario){
+    // Guardar un nuevo usuario
+    public void saveUsuario(Usuario usuario){
+        usuarioRepository.save(usuario);
+    }
+
+    // Actualizar usuario
+    public void updateUsuario(Usuario usuario){
         usuarioRepository.save(usuario);
     }
 
