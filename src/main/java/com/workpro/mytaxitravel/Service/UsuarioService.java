@@ -17,9 +17,9 @@ public class UsuarioService {
     UsuarioRepository usuarioRepository;
 
     // Metodo para obtener una lista de todos los usuarios
-    public List<Usuario> getUsuarios(){
+    /*public List<Usuario> getUsuarios(){
         return usuarioRepository.findAll();
-    }
+    }*/
 
     // Optional porque no sabemos si retorna algo
     public Optional<Usuario> getUsuario(int id){

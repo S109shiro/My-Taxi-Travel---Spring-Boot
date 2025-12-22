@@ -23,10 +23,10 @@ public class UsuarioController {
         return usuarioService.getUsuarios();  // LLamamos al service
     }
 
-    @GetMapping(path = "/getUsuario/{id_usuario}")
+    /*@GetMapping(path = "/getUsuario/{id_usuario}")
     public Optional<Usuario> getUsuario(@PathVariable("id_usuario") int idUsuario){  // Path es para obtener una variable de la url
         return usuarioService.getUsuario(idUsuario);
-    }
+    }*/
 
     @PostMapping(path = "/createUsuario")
     public String createUsuario(@RequestBody Usuario usuario){
