@@ -12,7 +12,7 @@ import java.util.Optional;
 // Decimos que es un service va la logica de negocio
 @Service
 public class UsuarioService {
-    // Utilizamos el autowired para
+    // Utilizamos el autowired para inyectar dependencias
     @Autowired
     UsuarioRepository usuarioRepository;
 
