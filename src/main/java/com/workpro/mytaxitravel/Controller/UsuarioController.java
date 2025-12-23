@@ -18,15 +18,15 @@ public class UsuarioController {
     @Autowired  //
     private UsuarioService usuarioService;  // Traemos los servicios para aplicar los metodos de la logica de negocio
 
-    @GetMapping(path = "/getUsuarios")
+    /*@GetMapping(path = "/getUsuarios")
     public List<Usuario> getUsuarios(){
         return usuarioService.getUsuarios();  // LLamamos al service
-    }
+    }*/
 
-    /*@GetMapping(path = "/getUsuario/{id_usuario}")
+    @GetMapping(path = "/getUsuario/{id_usuario}")
     public Optional<Usuario> getUsuario(@PathVariable("id_usuario") int idUsuario){  // Path es para obtener una variable de la url
         return usuarioService.getUsuario(idUsuario);
-    }*/
+    }
 
     @PostMapping(path = "/createUsuario")
     public String createUsuario(@RequestBody Usuario usuario){
