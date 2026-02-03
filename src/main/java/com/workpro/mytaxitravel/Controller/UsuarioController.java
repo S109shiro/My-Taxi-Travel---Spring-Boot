@@ -27,15 +27,15 @@ public class UsuarioController {
     }
 
     @PostMapping(path = "/create")
-    public String createUsuario(@RequestBody Usuario usuario){
-        usuarioService.saveUsuario(usuario);
-        return "Usuario registrado con el siguiente id: " + usuario.getIdUsuario();
+    public String createUsuario(@RequestBody Usuario nuevoUsuario){
+        usuarioService.saveUsuario(nuevoUsuario);
+        return "Usuario registrado con el siguiente id: " + nuevoUsuario.getIdUsuario();
     }
 
     @PutMapping(path = "/update")
     public String updateUsuario(@RequestBody Usuario usuario){
         usuarioService.updateUsuario(usuario);
-        return "El usuario con el id: " + usuario.getNombre() + " ha sido actualizado";
+        return "El usuario con el id: " + usuario.getIdUsuario() + " ha sido actualizado";
     }
 
     @DeleteMapping(path = "/delete/{id_usuario}")

@@ -1,5 +1,6 @@
 package com.workpro.mytaxitravel.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -16,6 +17,7 @@ import java.sql.Date;
 public class Taxi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("id_taxi")
     @Column(name = "id_taxi")
     private int idTaxi;
     @Column(name = "placa", length = 6, unique = true, nullable = false)

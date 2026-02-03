@@ -1,5 +1,6 @@
 package com.workpro.mytaxitravel.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -16,6 +17,7 @@ public class Administrador extends Persona{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_administrador")
+    @JsonProperty("id_administrador")
     private int idAdministrador;
 
 }

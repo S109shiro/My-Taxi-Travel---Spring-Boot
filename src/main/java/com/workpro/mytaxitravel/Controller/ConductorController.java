@@ -1,6 +1,7 @@
 package com.workpro.mytaxitravel.Controller;
 
 import com.workpro.mytaxitravel.Entity.Conductor;
+import com.workpro.mytaxitravel.Repository.ConductorRepository;
 import com.workpro.mytaxitravel.Service.ConductorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ public class ConductorController {
     // Instancia de service del conductor
     @Autowired
     ConductorService conductorService;
+    ConductorRepository conductorRepository;
 
     @GetMapping("/getAll")
     public List<Conductor> getConductores(){
@@ -26,9 +28,9 @@ public class ConductorController {
     }
 
     @PostMapping("/create")
-    public String saveConductor(@RequestBody Conductor conductor){
-        conductorService.saveConductor(conductor);
-        return "Conductor registrado con el siguiente id: " + conductor.getIdConductor();
+    public String saveConductor(@RequestBody Conductor nuevoConductor){
+        conductorService.saveConductor(nuevoConductor);
+        return "Conductor registrado con el siguiente id: " + nuevoConductor.getIdConductor();
     }
 
     @PutMapping("/update")

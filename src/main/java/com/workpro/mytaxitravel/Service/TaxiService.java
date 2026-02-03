@@ -32,5 +32,4 @@ public class TaxiService {
     public void deleteTaxi(int id){
         taxiRepository.deleteById(id);
     }
-
 }
