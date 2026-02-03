@@ -21,7 +21,11 @@ public class ConductorService {
         return conductorRepository.findById(id);
     }
 
-    public void saveOrUpdateConductor(Conductor conductor){
+    public void updateConductor(Conductor conductor){
+        conductorRepository.save(conductor);
+    }
+
+    public void saveConductor(Conductor conductor){
         conductorRepository.save(conductor);
     }
 

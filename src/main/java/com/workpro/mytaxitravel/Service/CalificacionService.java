@@ -16,7 +16,15 @@ public class CalificacionService {
         return calificacionRepository.findById(id);
     }
 
-    public void saveOrUpdate(Calificacion calificacion){
+    public void saveCalificacion(Calificacion calificacion){
         calificacionRepository.save(calificacion);
+    }
+
+    public void updateCalificacion(Calificacion calificacion){
+        calificacionRepository.save(calificacion);
+    }
+
+    public void deleteCalificacion(int id){
+        calificacionRepository.deleteById(id);
     }
 }

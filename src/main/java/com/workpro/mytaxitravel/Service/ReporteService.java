@@ -21,7 +21,11 @@ public class ReporteService {
         return reporteRepository.findById(id);
     }
 
-    public void saveOrUpdateReporte(Reporte reporte){
+    public void saveReporte(Reporte reporte){
+        reporteRepository.save(reporte);
+    }
+
+    public void updateReporte(Reporte reporte){
         reporteRepository.save(reporte);
     }
 

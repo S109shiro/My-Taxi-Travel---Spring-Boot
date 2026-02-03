@@ -21,7 +21,11 @@ public class TaxiService {
         return taxiRepository.findById(id);
     }
 
-    public void saveOrUpdateTaxi(Taxi taxi){
+    public void saveTaxi(Taxi taxi){
+        taxiRepository.save(taxi);
+    }
+
+    public void updateTaxi(Taxi taxi){
         taxiRepository.save(taxi);
     }
 

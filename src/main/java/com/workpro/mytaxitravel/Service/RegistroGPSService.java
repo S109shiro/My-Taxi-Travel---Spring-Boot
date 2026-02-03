@@ -16,8 +16,16 @@ public class RegistroGPSService {
         return registroGPSRepository.findById(id);
     }
 
-    public void saveOrUpdateRegistroGPS(RegistroGPS registroGPS){
+    public void updateRegistroGPS(RegistroGPS registroGPS){
         registroGPSRepository.save(registroGPS);
+    }
+
+    public void saveRegistroGPS(RegistroGPS registroGPS){
+        registroGPSRepository.save(registroGPS);
+    }
+
+    public void deleteRegistroGPS(int id){
+        registroGPSRepository.deleteById(id);
     }
 
 

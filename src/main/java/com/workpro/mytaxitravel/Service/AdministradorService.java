@@ -23,9 +23,21 @@ public class AdministradorService {
         return administradorRepository.findById(id);
     }
 
-    // Guardar o actualizar un objeto administrador
-    public void saveOrUpdateAdministrador(Administrador administrador){
+    // Actualizar un objeto administrador
+    public void updateAdministrador(Administrador administrador){
         administradorRepository.save(administrador);
     }
+
+    // Guardar un administrador
+    public void saveAdministrador(Administrador administrador){
+        administradorRepository.save(administrador);
+    }
+
+    // Eliminar un administrador
+    public void deleteAdministrador(int id){
+        administradorRepository.deleteById(id);
+    }
+
+
 
 }
