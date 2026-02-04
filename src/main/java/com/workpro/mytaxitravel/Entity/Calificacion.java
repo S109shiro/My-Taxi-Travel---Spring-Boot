@@ -1,5 +1,6 @@
 package com.workpro.mytaxitravel.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
@@ -19,21 +20,27 @@ public class Calificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_calificacion")
+    @JsonProperty("id_calificacion")
     private int idCalificacion;
 
     @DecimalMin("0.0")
     @DecimalMax("5.0")
     @Column(name = "calificacion_usuario", precision = 3, scale = 2, nullable = false)
+    @JsonProperty("calificacion_usuario")
     private BigDecimal calificacionUsuario;
 
     @DecimalMin("0.0")
     @DecimalMax("5.0")
     @Column(name = "calificacion_conductor", precision = 3, scale = 2, nullable = false)
+    @JsonProperty("calificacion_conductor")
     private BigDecimal calificacionConductor;
 
     @Column(name = "comentario_usuario")
+    @JsonProperty("comentario_usuario")
     private String comentarioUsuario;
+
     @Column(name = "comentario_conductor")
+    @JsonProperty("comentario_conductor")
     private String comentarioConductor;
 
 }

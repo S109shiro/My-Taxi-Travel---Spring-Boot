@@ -15,7 +15,7 @@ public class ConductorController {
     // Instancia de service del conductor
     @Autowired
     ConductorService conductorService;
-    ConductorRepository conductorRepository;
+    //ConductorRepository conductorRepository;
 
     @GetMapping("/getAll")
     public List<Conductor> getConductores(){
