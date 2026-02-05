@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class ViajeService {
     @Autowired
-    // Obtenemo una instancia del repositorio de viaje
+    // Obtenemos una instancia del repositorio de viaje
     ViajeRepository viajeRepository;
 
     // Ver todos los viajes
