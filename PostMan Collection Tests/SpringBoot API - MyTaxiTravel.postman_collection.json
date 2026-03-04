@@ -1,0 +1,946 @@
+{
+  "info": {
+    "_postman_id": "ae45b44b-41d5-4daa-a2ff-e266669113ba",
+    "name": "SpringBoot API - MyTaxiTravel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50925365",
+    "_collection_link": "https://go.postman.co/collection/50925365-ae45b44b-41d5-4daa-a2ff-e266669113ba?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Usuario",
+      "item": [
+        {
+          "name": "Crear usuario",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Sebastian\",\r\n    \"primer_apellido\": \"Gonzalez\",\r\n    \"segundo_apellido\": \"Rodriguez\",\r\n    \"edad\": 22,\r\n    \"numero_identificacion\": 1016715884,\r\n    \"email\": \"sebasgonra@\",\r\n    \"sexo\": \"Masculino\",\r\n    \"documento_identidad\": \"www.midocumento.com\",\r\n    \"numero_telefono\": \"3003367605\",\r\n    \"fecha_nacimiento\": \"2004-10-09\",\r\n    \"calificacion_media\": 4.0,\r\n    \"contrasena\": \"0000\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/usuario/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuario",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mostrar todos los usuarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/usuario/getAll",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuario",
+                "getAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mostrar datos usuario ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/usuario/get/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuario",
+                "get",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Usuario ID",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id_usuario\": 1,\r\n    \"nombre\": \"\",\r\n    \"primer_apellido\": \"\",\r\n    \"segundo_apellido\": \"\",\r\n    \"edad\": 0,\r\n    \"numero_identificacion\": 0,\r\n    \"email\": \"\",\r\n    \"sexo\": \"\",\r\n    \"documento_identidad\": \"\",\r\n    \"numero_telefono\": \"\",\r\n    \"fecha_nacimiento\": \"2004-10-09\",\r\n    \"calificacion_media\": 0.0,\r\n    \"contrasena\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/usuario/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuario",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Borrar usuario ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/usuario/delete/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "usuario",
+                "delete",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Administrador",
+      "item": [
+        {
+          "name": "Crear Administrador",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Alejo\",\r\n    \"primer_apellido\": \"Gonzalez\",\r\n    \"segundo_apellido\": \"Rodriguez\",\r\n    \"edad\": 14,\r\n    \"numero_identificacion\": 1011206817,\r\n    \"email\": \"alejo@gmail.com\",\r\n    \"sexo\": \"Masculino\",\r\n    \"documento_identidad\": \"www.midocumento.com\",\r\n    \"numero_telefono\": \"3123349298\",\r\n    \"fecha_nacimiento\": \"2010-10-24\",\r\n    \"contrasena\": \"4208\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/administrador/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "administrador",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener todos los administradores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/administrador/getAll",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "administrador",
+                "getAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mostrar datos de un administrador ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/administrador/get/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "administrador",
+                "get",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar administrador",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id_administrador\": 1,\r\n    \"nombre\": \"Leonardo\",\r\n    \"primer_apellido\": \"\",\r\n    \"segundo_apellido\": \"\",\r\n    \"edad\": 0,\r\n    \"numero_identificacion\": 5,\r\n    \"email\": \"4\",\r\n    \"sexo\": \"\",\r\n    \"documento_identidad\": \"\",\r\n    \"numero_telefono\": \"\",\r\n    \"fecha_nacimiento\": \"2004-10-21\",\r\n    \"contrasena\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/administrador/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "administrador",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar administrador ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/administrador/delete/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "administrador",
+                "delete",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Conductor",
+      "item": [
+        {
+          "name": "Crear conductor",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Sandra\",\r\n    \"primer_apellido\": \"Gonzale\",\r\n    \"segundo_apellido\": \"Rojas\",\r\n    \"edad\": 48,\r\n    \"numero_identificacion\": 20879223,\r\n    \"email\": \"sandy7788@gmail.com\",\r\n    \"sexo\": \"Femenino\",\r\n    \"documento_identidad\": \"www,docucmento,web\",\r\n    \"numero_telefono\": \"3003358545\",\r\n    \"fecha_nacimiento\": \"1969-10-09\",\r\n    \"calificacion_media\": 5.0,\r\n    \"ganancias_mes\": 100.000,\r\n    \"ganancias_totales\": 51.000,\r\n    \"taxi_en_uso\": {\r\n        \"id_taxi\": 1\r\n    },\r\n    \"contrasena\": \"0000\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/conductor/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "conductor",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mostrar datos conductor ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/conductor/get/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "conductor",
+                "get",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mostrar todos los conductores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/conductor/getAll",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "conductor",
+                "getAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar conductor ID",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id_conductor\": 1,\r\n    \"nombre\": \"Juancho\",\r\n    \"primer_apellido\": \"\",\r\n    \"segundo_apellido\": \"\",\r\n    \"edad\": 50,\r\n    \"numero_identificacion\": 10,\r\n    \"email\": \"hfh\",\r\n    \"sexo\": \"\",\r\n    \"documento_identidad\": \"121\",\r\n    \"numero_telefono\": \"\",\r\n    \"fecha_nacimiento\": \"2004-10-09\",\r\n    \"calificacion_media\": 4.8,\r\n    \"ganancias_mes\": 10000,\r\n    \"ganancias_totales\": 5000,\r\n    \"taxi_en_uso\": {\r\n        \"id_taxi\": 1\r\n    },\r\n    \"contrasena\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/conductor/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "conductor",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar conductor ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/conductor/delete1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "conductor",
+                "delete1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Taxi",
+      "item": [
+        {
+          "name": "Crear Taxis",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"placa\" : \"AAA000\",\r\n    \"modelo\" : \"Chevrolet\",\r\n    \"ultima_tecnico_mecanica\" : \"2026-10-24\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/taxi/create",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "taxi",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener todos los taxis",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/taxi/getAll",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "taxi",
+                "getAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener taxi ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/taxi/get/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "taxi",
+                "get",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar taxi ID",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id_taxi\": 1,\r\n    \"placa\" : \"CCC111\",\r\n    \"modelo\" : \"Honda\",\r\n    \"ultima_tecnico_mecanica\" : \"2014-10-24\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/taxi/update",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "taxi",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar taxi ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/taxi/delete/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "taxi",
+                "delete",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Calificacion",
+      "item": [
+        {
+          "name": "Crear calificacion",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"calificacion_usuario\" : 5.0,\r\n    \"calificacion_conductor\": 4.0,\r\n    \"comentario_usuario\": \"Buen Viaje\",\r\n    \"comentario_conductor\": \"Buena experiencia\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/calificacion/create",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "calificacion",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener calificacion ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/calificacion/get/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "calificacion",
+                "get",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar calificacion ID",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id_calificacion\": 1,\r\n    \"calificacion_usuario\" : 1.0,\r\n    \"calificacion_conductor\": 1.0,\r\n    \"comentario_usuario\": \"\",\r\n    \"comentario_conductor\": \"\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/calificacion/update",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "calificacion",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Borrar calificacion ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/calificacion/delete/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "calificacion",
+                "delete",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "RegistroGPS",
+      "item": [
+        {
+          "name": "Crear Registro GPS",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"direccion_inicio\": \"Cra. 69a #1-69\",\r\n    \"direccion_destino\": \"Ak 15 #78-33\",\r\n    \"latitud_inicio\": 4.622734,\r\n    \"longitud_inicio\": -74.129357,\r\n    \"latitud_destino\": 4.664311,\r\n    \"longitud_destino\": -74.058418,\r\n    \"fecha_hora_inicio\": \"2025-02-04T14:30:00\",\r\n    \"fecha_hora_final\": \"2025-02-04T15:00:00\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/registroGPS/create",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "registroGPS",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener todos registros GPS",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/registroGPS/get/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "registroGPS",
+                "get",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar registro GPS ID",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id_registro_viaje\": 1,\r\n    \"direccion_inicio\": \"Cra, 00 #1-8\",\r\n    \"direccion_destino\": \"Cra, 03 #1-8\",\r\n    \"latitud_inicio\": 1.255555,\r\n    \"longitud_inicio\": -74.594545,\r\n    \"latitud_destino\": 4.305089,\r\n    \"longitud_destino\": -74.852256,\r\n    \"fecha_hora_inicio\": \"2004-05-06T10:30:00\",\r\n    \"fecha_hora_final\": \"2004-05-06T13:00:00\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/registroGPS/update",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "registroGPS",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar Registro GPS ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/registroGPS/delete/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "registroGPS",
+                "delete",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reporte",
+      "item": [
+        {
+          "name": "Crear Reporte",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fecha_reporte\" : \"2024-01-29\",\r\n    \"tipo_reporte\" : \"Mal servicio\",\r\n    \"detalles\" : \"Se me ofrecio un mal servicio por parte del conductor\",\r\n    \"encargado_reporte\" : {\r\n        \"id_administrador\": 1\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/reporte/create",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "reporte",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener todos los reportes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/reporte/getAll",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "reporte",
+                "getAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener reporte ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/reporte/get/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "reporte",
+                "get",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar reporte ID",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id_reporte\": 1,\r\n    \"fecha_reporte\" : \"2012-01-29\",\r\n    \"tipo_reporte\" : \"Cobro excesivo\",\r\n    \"detalles\" : \"Se presento un cobro excesivo a la hora de realizar el servicio\",\r\n    \"encargado_reporte\" : {\r\n        \"id_administrador\": 1\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/reporte/update",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "reporte",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Borrar reporte ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/reporte/delete/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "reporte",
+                "delete",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Viaje",
+      "item": [
+        {
+          "name": "Crear viaje",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id_usuario\": {\r\n        \"id_usuario\": 1\r\n    },\r\n    \"id_conductor\": {\r\n        \"id_conductor\": 1\r\n    },\r\n    \"estado_viaje\": \"Finalizado\",\r\n    \"costo_final\": 20000,\r\n    \"tipo_pago\": \"Efectivo\",\r\n    \"calificacion_final\": {\r\n        \"id_calificacion\": 1\r\n    },\r\n    \"reporte\":{\r\n        \"id_reporte\": 1\r\n    },\r\n    \"registro_GPS\": {\r\n        \"id_registro_viaje\": 1\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/viaje/create",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "viaje",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener todos los viajes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/viaje/getAll",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "viaje",
+                "getAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener viaje ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/viaje/get/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "viaje",
+                "get",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar viaje",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id_viaje\": 1,\r\n    \"id_usuario\": {\r\n        \"id_usuario\": 1\r\n    },\r\n    \"id_conductor\": {\r\n        \"id_conductor\": 1\r\n    },\r\n    \"estado_viaje\": \"Finalizado\",\r\n    \"costo_final\": 20000,\r\n    \"tipo_pago\": \"Efectivo\",\r\n    \"calificacion_final\": {\r\n        \"id_calificacion\": 1\r\n    },\r\n    \"reporte\": {\r\n        \"id_reporte\": 2 \r\n    },\r\n    \"registro_GPS\": {\r\n        \"id_registro_viaje\": 1\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/viaje/update",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "viaje",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Borrar Viaje ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/viaje/delete/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "viaje",
+                "delete",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
