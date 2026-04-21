@@ -5,7 +5,6 @@ import com.workpro.mytaxitravel.Entity.Usuario;
 import com.workpro.mytaxitravel.Service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +14,7 @@ import java.util.Optional;
 @RestController  // Indica que esta clase es un rest controller el cual permite
 // Manejar solicitudes http - Devuelve objetos como Json o xml - Es un endpoint
 @RequestMapping(path = "/usuario")  // Indica la url del controlador a utilizar
+
 public class UsuarioController {
     @Autowired  //
     private UsuarioService usuarioService;  // Traemos los servicios para aplicar los metodos de la logica de negocio
@@ -35,9 +35,9 @@ public class UsuarioController {
     }
 
     @PostMapping(path = "/create")
-    public String createUsuario(@RequestBody Usuario nuevoUsuario){
+    public ResponseEntity<String> createUsuario(@RequestBody Usuario nuevoUsuario){
         usuarioService.saveUsuario(nuevoUsuario);
-        return "Usuario registrado con el siguiente id: " + nuevoUsuario.getIdUsuario();
+        return ResponseEntity.status(HttpStatus.CREATED).body("Usuario registrado con el siguiente id: " + nuevoUsuario.getIdUsuario());
     }
 
     @PutMapping(path = "/update")
