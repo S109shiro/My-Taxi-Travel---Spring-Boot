@@ -44,7 +44,12 @@ public class UsuarioService {
     }
 
     // Eliminar un usuario
-    public void deleteUsuario(int id){
-        usuarioRepository.deleteById(id);
+    public boolean deleteUsuario(int id){
+        if(getUsuario(id).isPresent()){
+            usuarioRepository.deleteById(id);
+            return true;
+        }else{
+            return false;
+        }
     }
 }
