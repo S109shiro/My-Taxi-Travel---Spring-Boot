@@ -4,6 +4,9 @@ package com.workpro.mytaxitravel.Controller;
 import com.workpro.mytaxitravel.Entity.Usuario;
 import com.workpro.mytaxitravel.Service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,8 +25,13 @@ public class UsuarioController {
     }
 
     @GetMapping(path = "/get/{id_usuario}")
-    public Optional<Usuario> getUsuario(@PathVariable("id_usuario") int idUsuario){  // Path es para obtener una variable de la url
-        return usuarioService.getUsuario(idUsuario);
+    public ResponseEntity<Optional<Usuario>> getUsuario(@PathVariable("id_usuario") int idUsuario){  // Path es para obtener una variable de la url
+        Optional<Usuario> user = usuarioService.getUsuario(idUsuario);
+        if(user.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Optional.empty());
+        }else{
+            return ResponseEntity.ok(user);
+        }
     }
 
     @PostMapping(path = "/create")
