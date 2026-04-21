@@ -46,9 +46,14 @@ public class UsuarioController {
     }
 
     @PutMapping(path = "/update")
-    public String updateUsuario(@RequestBody Usuario usuario){
-        usuarioService.updateUsuario(usuario);
-        return "El usuario con el id: " + usuario.getIdUsuario() + " ha sido actualizado";
+    public ResponseEntity<String> updateUsuario(@RequestBody Usuario usuario){
+        boolean exception = usuarioService.updateUsuario(usuario);
+        System.out.println(exception);
+        if(exception){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El usuario con el id: " + usuario.getIdUsuario() + " no existe en la base de datos.");
+        }else {
+            return ResponseEntity.ok("El usuario con el id: " + usuario.getIdUsuario() + " ha sido actualizado");
+        }
     }
 
     @DeleteMapping(path = "/delete/{id_usuario}")
