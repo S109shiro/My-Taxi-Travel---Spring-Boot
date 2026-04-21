@@ -20,8 +20,13 @@ public class UsuarioController {
     private UsuarioService usuarioService;  // Traemos los servicios para aplicar los metodos de la logica de negocio
 
     @GetMapping(path = "/getAll")
-    public List<Usuario> getUsuarios(){
-        return usuarioService.getUsuarios();  // LLamamos al service
+    public ResponseEntity<List<Usuario>> getUsuarios(){
+        List<Usuario> users = usuarioService.getUsuarios();
+        if(users.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(users);
+        }else{
+            return ResponseEntity.ok(users);
+        }
     }
 
     @GetMapping(path = "/get/{id_usuario}")

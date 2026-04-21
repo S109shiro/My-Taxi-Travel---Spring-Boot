@@ -34,6 +34,7 @@ public class UsuarioService {
 
     // Actualizar usuario
     public void updateUsuario(Usuario usuario){
+        System.out.println(usuarioRepository.save(usuario));
         usuarioRepository.save(usuario);
     }
 
