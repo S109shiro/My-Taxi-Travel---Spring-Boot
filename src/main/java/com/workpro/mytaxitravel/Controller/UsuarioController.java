@@ -41,17 +41,23 @@ public class UsuarioController {
 
     @PostMapping(path = "/create")
     public ResponseEntity<String> createUsuario(@RequestBody Usuario nuevoUsuario){
-        usuarioService.saveUsuario(nuevoUsuario);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Usuario registrado con el siguiente id: " + nuevoUsuario.getIdUsuario());
+        if(usuarioService.saveUsuario(nuevoUsuario).equals("Usuario registrado con el siguiente id: " + nuevoUsuario.getIdUsuario())){
+            return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.saveUsuario(nuevoUsuario));
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(usuarioService.saveUsuario(nuevoUsuario));
+        }
     }
-
+    // Personalizar salidas
     @PutMapping(path = "/update")
     public ResponseEntity<String> updateUsuario(@RequestBody Usuario usuario){
-        boolean exception = usuarioService.updateUsuario(usuario);
-        if(exception){
+        String result = usuarioService.updateUsuario(usuario);
+        if(result.equals("El usuario con el id: " + usuario.getIdUsuario() + " ha sido actualizado")){
+            return ResponseEntity.ok(result);
+        }else if(result.startsWith("Row")){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El usuario con el id: " + usuario.getIdUsuario() + " no existe en la base de datos.");
-        }else {
-            return ResponseEntity.ok("El usuario con el id: " + usuario.getIdUsuario() + " ha sido actualizado");
+        }else{
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
         }
     }
 

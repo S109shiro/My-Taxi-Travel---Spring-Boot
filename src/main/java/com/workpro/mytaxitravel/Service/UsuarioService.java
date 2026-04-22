@@ -3,9 +3,13 @@ package com.workpro.mytaxitravel.Service;
 import com.workpro.mytaxitravel.Entity.Usuario;
 import com.workpro.mytaxitravel.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
+import tools.jackson.databind.ObjectMapper;
 
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,19 +32,26 @@ public class UsuarioService {
     }
 
     // Guardar un nuevo usuario
-    public void saveUsuario(Usuario usuario){
-        usuarioRepository.save(usuario);
+    public String saveUsuario(Usuario usuario){
+        try{
+            usuarioRepository.save(usuario);
+            return "Usuario registrado con el siguiente id: " + usuario.getIdUsuario();
+
+        }catch (Exception e){
+            return e.getMessage().substring(0, e.getMessage().indexOf("] ")+1);
+        }
     }
 
     // Actualizar usuario
-    public boolean updateUsuario(Usuario usuario){
+    public String updateUsuario(Usuario usuario){
         try{
             usuarioRepository.save(usuario);
-            return false;
-        } catch (Exception e) {
-            return true;
+            return "El usuario con el id: " + usuario.getIdUsuario() + " ha sido actualizado";
+        } catch (ObjectOptimisticLockingFailureException e) {
+            return e.getMessage();
+        }catch (DataIntegrityViolationException d){
+            return d.getMessage().substring(0, d.getMessage().indexOf("] ")+1);
         }
-
     }
 
     // Eliminar un usuario
