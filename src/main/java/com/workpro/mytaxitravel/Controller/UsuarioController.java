@@ -1,7 +1,9 @@
 package com.workpro.mytaxitravel.Controller;
 
 
+import com.workpro.mytaxitravel.DTO.DTOLogin;
 import com.workpro.mytaxitravel.Entity.Usuario;
+import com.workpro.mytaxitravel.Repository.UsuarioRepository;
 import com.workpro.mytaxitravel.Service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,13 +13,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController  // Indica que esta clase es un rest controller el cual permite
 // Manejar solicitudes http - Devuelve objetos como Json o xml - Es un endpoint
 @RequestMapping(path = "/usuario")  // Indica la url del controlador a utilizar
-
 public class UsuarioController {
     @Autowired  //
     private UsuarioService usuarioService;  // Traemos los servicios para aplicar los metodos de la logica de negocio
+    @Autowired
+    private UsuarioRepository usuarioRepository;  // Para traer metodos como buscar login
 
     @GetMapping(path = "/getAll")
     public ResponseEntity<List<Usuario>> getUsuarios(){
@@ -68,6 +73,16 @@ public class UsuarioController {
             return ResponseEntity.ok("El usuario con el id: " + idUsuario + " ha sido eliminado");
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El usuario con el id: " + idUsuario + " no existe en la base de datos");
+        }
+    }
+
+    @PostMapping(path = "/login")
+    public ResponseEntity<String> loginUsuario(@RequestBody DTOLogin DatosLogin){
+        Usuario usuarioExist = usuarioRepository.findByEmail(DatosLogin.getEmail());
+        if(usuarioExist == null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("El usuario no existe o ingresaste credenciales incorrectas.");
+        }else{
+            return ResponseEntity.ok("Bienvenido " + usuarioExist.getNombre());
         }
     }
 }

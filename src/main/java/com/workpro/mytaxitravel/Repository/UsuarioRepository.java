@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository  // Indicamos que es un repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     // Esta interface repositorio tiene los metodos para acceder a los datos de la bd
+    Usuario findByEmail(String email);   // Creamos un metodo para buscar por email
 }
