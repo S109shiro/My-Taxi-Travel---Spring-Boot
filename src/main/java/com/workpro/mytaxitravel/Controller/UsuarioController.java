@@ -4,13 +4,16 @@ package com.workpro.mytaxitravel.Controller;
 import com.workpro.mytaxitravel.DTO.DTOLogin;
 import com.workpro.mytaxitravel.Entity.Usuario;
 import com.workpro.mytaxitravel.Repository.UsuarioRepository;
+import com.workpro.mytaxitravel.Security.JwtUtil;
 import com.workpro.mytaxitravel.Service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -21,8 +24,9 @@ import java.util.Optional;
 public class UsuarioController {
     @Autowired  //
     private UsuarioService usuarioService;  // Traemos los servicios para aplicar los metodos de la logica de negocio
+
     @Autowired
-    private UsuarioRepository usuarioRepository;  // Para traer metodos como buscar login
+    private JwtUtil jwtUtil;
 
     @GetMapping(path = "/getAll")
     public ResponseEntity<List<Usuario>> getUsuarios(){
@@ -77,12 +81,16 @@ public class UsuarioController {
     }
 
     @PostMapping(path = "/login")
-    public ResponseEntity<String> loginUsuario(@RequestBody DTOLogin DatosLogin){
-        Usuario usuarioExist = usuarioRepository.findByEmail(DatosLogin.getEmail());
-        if(usuarioExist == null){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("El usuario no existe o ingresaste credenciales incorrectas.");
+    public ResponseEntity<Map<String, String>> loginUsuario(@RequestBody DTOLogin DatosLogin){
+        Usuario usuarioExist = usuarioService.loginUsuario(DatosLogin);
+        if(usuarioExist == null || !(usuarioExist.getContrasena().equals(DatosLogin.getContrasena()))){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }else{
-            return ResponseEntity.ok("Bienvenido " + usuarioExist.getNombre());
+            String token = jwtUtil.generarToken(usuarioExist.getEmail());
+            Map<String, String> response = new HashMap<>();
+            response.put("token", token);
+            response.put("nombreUsuario", usuarioExist.getNombre());
+            return ResponseEntity.ok(response);
         }
     }
 }

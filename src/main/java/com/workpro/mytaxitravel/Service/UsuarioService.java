@@ -1,15 +1,12 @@
 package com.workpro.mytaxitravel.Service;
 
+import com.workpro.mytaxitravel.DTO.DTOLogin;
 import com.workpro.mytaxitravel.Entity.Usuario;
 import com.workpro.mytaxitravel.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
-import tools.jackson.databind.ObjectMapper;
-
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,5 +59,10 @@ public class UsuarioService {
         }else{
             return false;
         }
+    }
+
+    // Loguear un usuario
+    public Usuario loginUsuario(DTOLogin DatosLogin){
+        return usuarioRepository.findByEmail(DatosLogin.getEmail());
     }
 }
