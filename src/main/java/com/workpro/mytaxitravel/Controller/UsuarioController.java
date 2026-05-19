@@ -1,9 +1,7 @@
 package com.workpro.mytaxitravel.Controller;
 
-
 import com.workpro.mytaxitravel.DTO.DTOLogin;
 import com.workpro.mytaxitravel.Entity.Usuario;
-import com.workpro.mytaxitravel.Repository.UsuarioRepository;
 import com.workpro.mytaxitravel.Security.JwtUtil;
 import com.workpro.mytaxitravel.Service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +14,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
-@CrossOrigin(origins = "http://localhost:5173")
 @RestController  // Indica que esta clase es un rest controller el cual permite
 // Manejar solicitudes http - Devuelve objetos como Json o xml - Es un endpoint
 @RequestMapping(path = "/usuario")  // Indica la url del controlador a utilizar
@@ -86,10 +82,12 @@ public class UsuarioController {
         if(usuarioExist == null || !(usuarioExist.getContrasena().equals(DatosLogin.getContrasena()))){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }else{
+            // Obtencion de datos importantes para el login y apartados de la cuenta
             String token = jwtUtil.generarToken(usuarioExist.getEmail());
             Map<String, String> response = new HashMap<>();
             response.put("token", token);
             response.put("nombreUsuario", usuarioExist.getNombre());
+            response.put("idUser", String.valueOf(usuarioExist.getIdUsuario()));
             return ResponseEntity.ok(response);
         }
     }
