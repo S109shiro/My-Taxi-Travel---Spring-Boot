@@ -1,6 +1,8 @@
 package com.workpro.mytaxitravel.Service;
 
+import com.workpro.mytaxitravel.DTO.DTOLogin;
 import com.workpro.mytaxitravel.Entity.Administrador;
+import com.workpro.mytaxitravel.Entity.Usuario;
 import com.workpro.mytaxitravel.Repository.AdministradorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +38,10 @@ public class AdministradorService {
     // Eliminar un administrador
     public void deleteAdministrador(int id){
         administradorRepository.deleteById(id);
+    }
+
+    public Administrador loginAdministrador(DTOLogin DatosLogin){
+        return administradorRepository.findByEmail(DatosLogin.getEmail());
     }
 
 
