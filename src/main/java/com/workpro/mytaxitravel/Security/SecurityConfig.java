@@ -12,14 +12,14 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
+// Configuracion del cors
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // ✅ CORS directo aquí
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
@@ -27,6 +27,7 @@ public class SecurityConfig {
                         .requestMatchers("/usuario/create").permitAll()
                         .requestMatchers("/usuario/get/**").permitAll()
                         .requestMatchers("/usuario/update/**").permitAll()
+                        .requestMatchers("/usuario/delete/**").permitAll()
                         .anyRequest().authenticated()
                 );
 
