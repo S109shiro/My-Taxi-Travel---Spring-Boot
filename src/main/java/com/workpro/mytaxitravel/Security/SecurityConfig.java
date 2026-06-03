@@ -23,12 +23,15 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers("/usuario/getAll").permitAll()
                         .requestMatchers("/usuario/login").permitAll()
                         .requestMatchers("/usuario/create").permitAll()
                         .requestMatchers("/usuario/get/**").permitAll()
                         .requestMatchers("/usuario/update/**").permitAll()
                         .requestMatchers("/usuario/delete/**").permitAll()
+                        .requestMatchers("/conductor/getAll").permitAll()
                         .requestMatchers("/administrador/login").permitAll()
+                        .requestMatchers("/taxi/getAll").permitAll()
                         .anyRequest().authenticated()
                 );
 
