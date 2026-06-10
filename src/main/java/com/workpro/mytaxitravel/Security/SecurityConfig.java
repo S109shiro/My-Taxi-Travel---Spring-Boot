@@ -32,6 +32,10 @@ public class SecurityConfig {
                         .requestMatchers("/conductor/getAll").permitAll()
                         .requestMatchers("/administrador/login").permitAll()
                         .requestMatchers("/taxi/getAll").permitAll()
+                        .requestMatchers("/taxi/create").permitAll()
+                        .requestMatchers("/taxi/get/**").permitAll()
+                        .requestMatchers("/taxi/update/**").permitAll()
+                        .requestMatchers("/taxi/delete/**").permitAll()
                         .anyRequest().authenticated()
                 );
 
